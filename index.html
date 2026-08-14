@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Browse 237 X-Men comic books currently offered from a private collection." />
+    <meta property="og:title" content="X-Men Comic Collection — 237 Issues" />
+    <meta property="og:description" content="Search and browse every available cover by series, issue, story title, or date." />
+    <meta property="og:image" content="og.png" />
+    <meta name="theme-color" content="#101a2e" />
+    <title>X-Men Comic Collection — 237 Issues</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inventory">Skip to inventory</a>
+    <header class="hero">
+      <div class="hero__eyebrow">Private collection • Buyer preview</div>
+      <h1>X-Men Comic Collection</h1>
+      <p class="hero__lede">Explore every available issue by cover, series, story, and date.</p>
+      <div class="hero__stats" aria-label="Collection summary">
+        <strong>237</strong>
+        <span>issues in inventory</span>
+      </div>
+    </header>
+
+    <main id="inventory" class="catalog">
+      <section class="controls" aria-label="Inventory controls">
+        <label class="search-field">
+          <span>Search inventory</span>
+          <input id="search" type="search" placeholder="Try “Uncanny”, “282”, or a story title" autocomplete="off" />
+        </label>
+        <label>
+          <span>Series</span>
+          <select id="series"><option value="">All series</option></select>
+        </label>
+        <label>
+          <span>Sort</span>
+          <select id="sort">
+            <option value="title-issue">Series &amp; issue</option>
+            <option value="date-asc">Date: oldest first</option>
+            <option value="date-desc">Date: newest first</option>
+            <option value="issue-asc">Issue: lowest first</option>
+            <option value="issue-desc">Issue: highest first</option>
+          </select>
+        </label>
+      </section>
+
+      <div class="results-bar">
+        <p id="result-count" aria-live="polite">Loading inventory…</p>
+        <button id="clear" class="text-button" type="button" hidden>Clear filters</button>
+      </div>
+
+      <section id="gallery" class="gallery" aria-label="Comic covers"></section>
+      <div id="empty" class="empty" hidden>
+        <h2>No matching issues</h2>
+        <p>Try a different series, issue number, story title, or date.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Availability is subject to confirmation. Please contact the seller through the Facebook Marketplace listing.</p>
+    </footer>
+
+    <dialog id="viewer" class="viewer" aria-labelledby="viewer-title">
+      <div class="viewer__panel">
+        <button id="close-viewer" class="viewer__close" type="button" aria-label="Close enlarged cover">×</button>
+        <div class="viewer__image-wrap">
+          <img id="viewer-image" alt="" />
+        </div>
+        <div class="viewer__details">
+          <p id="viewer-position" class="viewer__position"></p>
+          <h2 id="viewer-title"></h2>
+          <dl>
+            <div><dt>Story</dt><dd id="viewer-story"></dd></div>
+            <div><dt>Cover date</dt><dd id="viewer-date"></dd></div>
+          </dl>
+          <div class="viewer__nav">
+            <button id="previous" type="button">← Previous</button>
+            <button id="next" type="button">Next →</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
